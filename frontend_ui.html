@@ -1,0 +1,25 @@
+<!-- frontend_ui.html -->
+<!-- Open this file in your web browser. This represents the Frontend UI presentation layer. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IoT Sensor Dashboard</title>
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f2f5; }
+    .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+    .temp { font-size: 2.5rem; font-weight: bold; color: #ff5722; margin: 1rem 0; }
+    button { padding: 10px 16px; border: none; background: #007bff; color: white; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Room Temperature Monitor</h2>
+    <!-- Display element that JavaScript will update with API data -->
+    <div id="temp-display" class="temp">-- °C</div>
+    <!-- Button for user interaction -->
+    <button id="fetch-btn">Refresh Data</button>
+  </div>
+  <!-- Connects the UI to client-side logic file -->
+  <script src="frontend_logic.js"></script>
+</body>
+</html>
