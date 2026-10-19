@@ -1,25 +1,87 @@
-<!-- frontend_ui.html -->
-<!-- Open this file in your web browser. This represents the Frontend UI presentation layer. -->
+<!-- ============================================================================== -->
+<!-- frontend_ui.html                                                              -->
+<!-- WHAT THIS FILE IS: The visual skeleton (HTML) and styling (CSS) of the page.   -->
+<!-- No programming logic lives here; it just puts boxes, text, and buttons on the -->
+<!-- screen and decides how they look.                                             -->
+<!-- ============================================================================== -->
+
+<!-- <!DOCTYPE html>: Tells the browser "this is a modern HTML5 document". Always line 1. -->
 <!DOCTYPE html>
+
+<!-- <html>: The root container. Every piece of code in this file must sit inside this tag. -->
 <html>
+
+<!-- <head>: The metadata section. Everything here is setup/configuration, not directly drawn on the page. -->
 <head>
+  <!-- <title>: Sets the text displayed on the browser's top window tab. Changing this changes the tab title. -->
   <title>IoT Sensor Dashboard</title>
+
+  <!-- <style>: CSS rules block. This styles the HTML elements below (colors, sizes, positions). -->
   <style>
-    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f2f5; }
-    .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
-    .temp { font-size: 2.5rem; font-weight: bold; color: #ff5722; margin: 1rem 0; }
-    button { padding: 10px 16px; border: none; background: #007bff; color: white; border-radius: 6px; cursor: pointer; }
+    /* "body" targets the entire browser window/background */
+    body {
+      font-family: sans-serif;                /* Changes the font style. (Try changing to: monospace or cursive) */
+      display: flex;                          /* Turns on Flexbox, a layout system to easily align items */
+      justify-content: center;               /* Horizontally centers the card right in the middle of the screen */
+      align-items: center;                   /* Vertically centers the card right in the middle of the screen */
+      height: 100vh;                         /* Makes body take 100% of the viewport height (full browser height) */
+      margin: 0;                             /* Removes default browser edge spacing so things touch edges cleanly */
+      background: #f0f2f5;                   /* Background color of page. Change "#f0f2f5" to "#111" for dark mode! */
+    }
+
+    /* ".card" targets any HTML tag with class="card". It styles the floating white box. */
+    .card {
+      background: white;                     /* Color inside the card. Change to "yellow" or any hex code */
+      padding: 2rem;                         /* Inner breathing space between borders and text (1rem = ~16 pixels) */
+      border-radius: 12px;                   /* Rounds the box corners. Change to 0px for sharp corners, 30px for round */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);/* Subtle drop shadow behind the card to make it look 3D and floating */
+      text-align: center;                    /* Centers all text inside this card */
+    }
+
+    /* ".temp" targets any tag with class="temp". Styles the large temperature number. */
+    .temp {
+      font-size: 2.5rem;                     /* Makes text big. Increase to 4rem for huge, decrease to 1rem for small */
+      font-weight: bold;                     /* Makes text thick/bold */
+      color: #ff5722;                        /* Text color (an energetic orange/red). Change to "#00aa00" for green! */
+      margin: 1rem 0;                        /* Top and bottom spacing around the temperature reading */
+    }
+
+    /* "button" targets all <button> elements on the page */
+    button {
+      padding: 10px 16px;                    /* Size of button: 10px top/bottom thickness, 16px left/right width */
+      border: none;                          /* Removes ugly default gray browser border */
+      background: #007bff;                   /* Background color of button (bright blue). Change to "red" or "#333" */
+      color: white;                          /* Text color of the button label */
+      border-radius: 6px;                    /* Gently rounds the corners of the button */
+      cursor: pointer;                       /* Turns mouse arrow into a clicking finger icon when hovering over it */
+    }
   </style>
 </head>
+
+<!-- <body>: The visible content area. Everything here is drawn visually on screen. -->
 <body>
+
+  <!-- <div class="card">: A division/box that uses the ".card" styling defined above -->
   <div class="card">
+
+    <!-- <h2>: Heading level 2. Plain title text. You can change this sentence to anything you want! -->
     <h2>Room Temperature Monitor</h2>
-    <!-- Display element that JavaScript will update with API data -->
+
+    <!-- <div id="temp-display">: This is the key element! -->
+    <!-- "id" is a unique identity badge. JavaScript uses "temp-display" to find this specific box -->
+    <!-- and overwrite the text "-- °C" with the real number from the backend server. -->
     <div id="temp-display" class="temp">-- °C</div>
-    <!-- Button for user interaction -->
+
+    <!-- <button id="fetch-btn">: A clickable button. -->
+    <!-- "id='fetch-btn'" gives JavaScript a handle to attach a click listener to it. -->
+    <!-- Change "Refresh Data" to whatever label you want the button to display. -->
     <button id="fetch-btn">Refresh Data</button>
+
   </div>
-  <!-- Connects the UI to client-side logic file -->
+
+  <!-- <script src="...">: Loads and runs the external JavaScript file. -->
+  <!-- This line connects the static HTML above to the active logic in "frontend_logic.js". -->
   <script src="frontend_logic.js"></script>
+
 </body>
 </html>
